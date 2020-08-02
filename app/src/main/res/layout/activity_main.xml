@@ -12,9 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="President Obama"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="400dp"
         android:backgroundTint="#8D04A5"
-        android:height="100dp"/>
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        android:height="100dp" />
 
     <Button
         android:id="@+id/bush"
@@ -24,6 +26,8 @@
         android:text="Jeb Bush"
         android:height="100dp"
         android:backgroundTint="#8D04A5"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
         />
 
     <Button
@@ -34,13 +38,14 @@
         android:layout_below="@id/bush"
         android:height="100dp"
         android:backgroundTint="#8D04A5"
-
-        />
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"        />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/tronalddump" />
+        android:layout_height="350dp"
+        app:srcCompat="@drawable/tronalddump"
+        />
 
 </RelativeLayout>
