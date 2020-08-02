@@ -16,7 +16,7 @@
         android:height="100dp"/>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/bush"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/obama"
@@ -30,6 +30,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lindsey Graham"
+        android:layout_below="@id/bush"
+        android:height="100dp"
+        android:backgroundTint="#8D04A5"
+
         />
 
 </RelativeLayout>
