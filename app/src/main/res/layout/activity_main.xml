@@ -3,13 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E0E2EA"
-    android:backgroundTint="#96E894">>
+    android:backgroundTint="#96E894">
 
 
     <Button
         android:id="@+id/obama"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="President Obama"
-        android:layout_marginTop=""/>
+        android:layout_marginTop="200dp"
+        android:backgroundTint="#8D04A5"
+        android:height="100dp"/>
 </RelativeLayout>
