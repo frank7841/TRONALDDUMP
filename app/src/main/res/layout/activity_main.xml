@@ -21,6 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/obama"
         android:text="Jeb Bush"
+        android:height="100dp"
+        android:backgroundTint="#8D04A5"
         />
 
 </RelativeLayout>
