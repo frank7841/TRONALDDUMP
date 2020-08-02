@@ -25,4 +25,11 @@
         android:backgroundTint="#8D04A5"
         />
 
+    <Button
+        android:id="@+id/graham"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lindsey Graham"
+        />
+
 </RelativeLayout>
