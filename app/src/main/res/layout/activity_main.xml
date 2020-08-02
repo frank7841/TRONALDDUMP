@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="President Obama"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="300dp"
         android:backgroundTint="#8D04A5"
         android:height="100dp"/>
 
