@@ -1,4 +1,8 @@
 package com.moringaschool.tronalddump;
 
-public class LindseyGrahamActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class LindseyGrahamActivity extends AppCompatActivity {
+
+
 }

@@ -39,6 +39,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent bushIntent = new Intent(MainActivity.this, JebBushActivity.class);
             startActivity(bushIntent);
         }
+        else if(v==mGrahamButton){
+            Intent grahamIntent = new Intent(MainActivity.this, LindseyGrahamActivity.class);
+            startActivity(grahamIntent);
+        }
 
     }
 }
