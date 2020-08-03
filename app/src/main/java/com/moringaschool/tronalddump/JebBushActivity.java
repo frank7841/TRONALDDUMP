@@ -10,8 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class JebBushActivity extends AppCompatActivity {
-    @BindView(R.id.jebBushTextView)
-    TextView mJebBushTextView;
+    @BindView(R.id.jebBushTextView) TextView mJebBushTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
