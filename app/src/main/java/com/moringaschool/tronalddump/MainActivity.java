@@ -2,6 +2,7 @@ package com.moringaschool.tronalddump;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onClick(View v){
+        if (v== mObama){
+            Intent intent = new Intent(MainActivity.this,ObamaActivity.class);
+            startActivity(intent);
+        }
 
     }
 }
