@@ -53,11 +53,15 @@
         android:id="@+id/appNmaeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Donald Trump Quotes"
+        android:text="What He Said About:"
         android:textColor="@color/colorTextIcons"
         android:textSize="50sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"/>
+    <EditText
+        android:id="@+id/yourNameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 
 </RelativeLayout>
