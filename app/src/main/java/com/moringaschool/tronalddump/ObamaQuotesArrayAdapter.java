@@ -14,6 +14,15 @@ public class ObamaQuotesArrayAdapter extends ArrayAdapter {
         this.mContext = mContext;
         this.mObama = mObama;
     }
+    @Override
+    public  Object getItem(int position){
+        String obamaQuote = mObama[position];
+        return String.format("%s \nHe Said:%s", obamaQuote);
+    }
+    @Override
+    public int getCount(){
+        return mObama.length;
+    }
 
 
 }
