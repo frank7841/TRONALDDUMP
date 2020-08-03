@@ -12,22 +12,19 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ObamaActivity extends AppCompatActivity {
-    @BindView(R.id.activityname)
-    TextView mActivityName;
-    @BindView(R.id.listView)
-    ListView mListView;
+    @BindView(R.id.activityname) TextView mActivityName;
+    @BindView(R.id.listView) ListView mListView;
     public static final String TAG = ObamaActivity.class.getSimpleName();
     private String[] ObamaQuotes = new String[]{"Our great African ", "American President hasn't ", "exactly had a positive impact on the thugs who", " are so happily and openly destroying Baltimore!", " - 28 April 2015"
-
 
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_obama);
+        setContentView(R.layout.activities_obama);
         ButterKnife.bind(this);
-        ObamaQuotesArrayAdapter adapter = new ObamaQuotesArrayAdapter(this, android.R.layout.simple_list_item_2, ObamaQuotes);
+        ObamaQuotesArrayAdapter adapter = new ObamaQuotesArrayAdapter(this, android.R.layout.simple_list_item_1, ObamaQuotes);
         mListView.setAdapter(adapter);
 
         Intent intent = getIntent();

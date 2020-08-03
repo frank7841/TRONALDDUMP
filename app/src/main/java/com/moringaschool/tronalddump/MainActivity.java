@@ -13,9 +13,9 @@ import butterknife.ButterKnife;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    @BindView(R.id.obamaButton) Button mObamaButton;
-//    @BindView(R.id.bush) Button mBush;
-//    @BindView(R.id.graham) Button mgraham;
+   @BindView(R.id.obamaButton) Button mObamaButton;
+   @BindView(R.id.bushButton)Button mBushButton;
+   @BindView(R.id.grahamButton)Button mGrahamButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +23,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+
         mObamaButton.setOnClickListener(this);
-//        mBush.setOnClickListener(this);
-//        mgraham.setOnClickListener(this);
+        mBushButton.setOnClickListener(this);
+        mGrahamButton.setOnClickListener(this);
     }
     @Override
     public void onClick(View v){
@@ -33,6 +34,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(MainActivity.this, "Hey Frank Lets do this", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this, ObamaActivity.class);
             startActivity(intent);
+        }
+        else if (v== mBushButton){
+            Intent bushIntent = new Intent(MainActivity.this, JebBushActivity.class);
+            startActivity(bushIntent);
         }
 
     }
