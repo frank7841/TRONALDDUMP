@@ -7,21 +7,21 @@ import androidx.annotation.NonNull;
 
 public class ObamaQuotesArrayAdapter extends ArrayAdapter {
     private Context mContext;
-    private String[] mObama;
+    private String[] mObamaQuotes;
 
-    public ObamaQuotesArrayAdapter( int resource, Context mContext, String[] mObama) {
+    public ObamaQuotesArrayAdapter( Context mContext, int resource, String[] mObamaQuotes) {
         super(mContext, resource);
         this.mContext = mContext;
-        this.mObama = mObama;
+        this.mObamaQuotes = mObamaQuotes;
     }
     @Override
     public  Object getItem(int position){
-        String obamaQuote = mObama[position];
+        String obamaQuote = mObamaQuotes[position];
         return String.format("%s \nHe Said:%s", obamaQuote);
     }
     @Override
     public int getCount(){
-        return mObama.length;
+        return mObamaQuotes.length;
     }
 
 
