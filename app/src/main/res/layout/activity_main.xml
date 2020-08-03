@@ -12,10 +12,11 @@
         android:layout_height="wrap_content"
         android:text="President Obama"
         android:layout_above="@id/bush"
-        android:backgroundTint="#8D04A5"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp"
-        android:height="75dp" />
+        android:backgroundTint="#28012E"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="25sp"
+        android:height="75dp"
+        android:textStyle="italic"/>
 
     <Button
         android:id="@+id/bush"
@@ -24,10 +25,10 @@
         android:layout_above="@id/graham"
         android:text="Jeb Bush"
         android:height="75dp"
-        android:backgroundTint="#8D04A5"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp"
-        />
+        android:backgroundTint="#28012E"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="25sp"
+        android:textStyle="italic"/>
 
     <Button
         android:id="@+id/graham"
@@ -36,9 +37,10 @@
         android:text="Lindsey Graham"
         android:layout_alignParentBottom="true"
         android:height="75dp"
-        android:backgroundTint="#8D04A5"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp"        />
+        android:backgroundTint="#28012E"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="25sp"
+        android:textStyle="italic"/>
 
     <ImageView
         android:id="@+id/imageView2"
