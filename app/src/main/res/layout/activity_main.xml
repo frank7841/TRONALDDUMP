@@ -12,19 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="President Obama"
-        android:layout_marginTop="400dp"
+        android:layout_above="@id/bush"
         android:backgroundTint="#8D04A5"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"
-        android:height="100dp" />
+        android:height="75dp" />
 
     <Button
         android:id="@+id/bush"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/obama"
+        android:layout_above="@id/graham"
         android:text="Jeb Bush"
-        android:height="100dp"
+        android:height="75dp"
         android:backgroundTint="#8D04A5"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"
@@ -35,17 +35,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lindsey Graham"
-        android:layout_below="@id/bush"
-        android:height="100dp"
+        android:layout_alignParentBottom="true"
+        android:height="75dp"
         android:backgroundTint="#8D04A5"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"        />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:src="@drawable/donald-trump"
-        />
+        android:src="@drawable/trump"
+        android:scaleType="centerCrop"/>
+
 
 </RelativeLayout>
