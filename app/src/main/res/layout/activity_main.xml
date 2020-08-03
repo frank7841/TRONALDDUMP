@@ -48,5 +48,12 @@
         android:src="@drawable/trump"
         android:scaleType="centerCrop"/>
 
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trumps Famous Quotes"
+        android:layout_alignParentTop="true"/>
+
 
 </RelativeLayout>
