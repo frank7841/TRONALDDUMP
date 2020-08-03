@@ -2,11 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
     <TextView
-        android:id="@+id/locationTextView"
+        android:id="@+id/activityname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="What He Said About Obama"
         android:layout_marginTop="35dp"
         android:layout_marginLeft="10dp"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_below="@+id/activityname"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>
