@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ObamaActivity"></activity>
+        <activity android:name=".JebBushActivity"></activity>
+        <activity android:name=".ObamaActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/NoActionBarTheme">
@@ -22,12 +23,7 @@
         <activity android:name=".LindseyGrahamActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.tronalddump.LindseyGrahamActivity"></meta-data>
-        </activity>
-        <activity android:name=".JebBushActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.tronalddump.JebBushActivity"></meta-data>
+                android:value="com.moringaschool.tronalddump.LindseyGrahamActivity" />
         </activity>
     </application>
 
