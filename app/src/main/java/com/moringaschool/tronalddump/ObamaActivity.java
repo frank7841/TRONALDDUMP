@@ -25,7 +25,7 @@ public class ObamaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activities_obama);
+        setContentView(R.layout.activity_obama);
         ButterKnife.bind(this);
 
         ObamaQuotesArrayAdapter adapter = new ObamaQuotesArrayAdapter(this, android.R.layout.simple_list_item_1, ObamaQuotes);
