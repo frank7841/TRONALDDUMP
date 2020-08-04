@@ -1,5 +1,9 @@
 package com.moringaschool.tronalddump;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +22,7 @@ public class LindseyGrahamActivity extends AppCompatActivity {
     @BindView(R.id.listView)ListView mListView;
 
     private String[] graham = new String[]{"Remember when the two failed presidential candidates, Lindsey Graham and Jeb Bush, signed a binding PLEDGE? They broke the deal, no honor! - 7 May 2016",
-    "Sen. Lindsey Graham embarrassed himself with his failed run for President and now further embarrasses himself with endorsement of Bush. - 15 January 2016"};
+            "Sen. Lindsey Graham embarrassed himself with his failed run for President and now further embarrasses himself with endorsement of Bush. - 15 January 2016"};
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
