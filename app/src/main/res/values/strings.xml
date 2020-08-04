@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TronaldDump</string>
+    <string name="lindsey_graham">Lindsey Graham</string>
+    <string name="jeb_bush">Jeb Bush</string>
 </resources>

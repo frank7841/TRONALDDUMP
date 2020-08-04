@@ -17,7 +17,8 @@ public class LindseyGrahamActivity extends AppCompatActivity {
     @BindView(R.id.linseyGraham) TextView mLinseyGraham;
     @BindView(R.id.listView)ListView mListView;
 
-    private String[] graham = new String[]{"Do good","Do More Good", "and aliitle more good"};
+    private String[] graham = new String[]{"Remember when the two failed presidential candidates, Lindsey Graham and Jeb Bush, signed a binding PLEDGE? They broke the deal, no honor! - 7 May 2016",
+    "Sen. Lindsey Graham embarrassed himself with his failed run for President and now further embarrasses himself with endorsement of Bush. - 15 January 2016"};
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
