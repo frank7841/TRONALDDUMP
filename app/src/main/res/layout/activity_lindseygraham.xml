@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
+
     <TextView
         android:id="@+id/linseyGraham"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/aguafina_script"
         android:text="What He Said ABout Lindsey Graham"
-        android:textSize="20sp"
-      />
+        android:textSize="20sp" />
 
     <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
         android:layout_below="@+id/linseyGraham"
         android:layout_alignParentEnd="true"
-        android:padding="10dp"
-        />
+        android:background="#FFFFFF"
+        android:footerDividersEnabled="true"
+        android:padding="10dp" />
 
 
 </RelativeLayout>
