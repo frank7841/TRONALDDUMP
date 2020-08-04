@@ -2,7 +2,7 @@
 #### By Frankline SImiyu
 
 ## Description
-This is a cookbook application
+This a  Trump Quotes Application
 * This Application describes many of the many Tramps quotes on Specific Hot Topics 
 
 * Users are able to  view whatever Topics and see wehat Trump said
