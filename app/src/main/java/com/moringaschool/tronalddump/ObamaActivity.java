@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +29,7 @@ public class ObamaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_obama);
         ButterKnife.bind(this);
 
-        ObamaQuotesArrayAdapter adapter = new ObamaQuotesArrayAdapter(this, android.R.layout.simple_list_item_1, ObamaQuotes);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ObamaQuotes);
         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){

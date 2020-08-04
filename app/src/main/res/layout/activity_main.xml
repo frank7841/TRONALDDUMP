@@ -53,11 +53,12 @@
         android:id="@+id/appNmaeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/aladin"
         android:text="What He Said About:"
         android:textColor="@color/colorTextIcons"
         android:textSize="50sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"/>
+        android:textStyle="bold" />
 <!--    <EditText-->
 <!--        android:id="@+id/yourNameEditText"-->
 <!--        android:layout_width="wrap_content"-->

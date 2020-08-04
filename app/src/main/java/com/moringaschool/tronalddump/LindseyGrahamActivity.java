@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,14 +23,14 @@ public class LindseyGrahamActivity extends AppCompatActivity {
     @BindView(R.id.listView)ListView mListView;
 
     private String[] graham = new String[]{"Remember when the two failed presidential candidates, Lindsey Graham and Jeb Bush, signed a binding PLEDGE? They broke the deal, no honor! - 7 May 2016",
-            "Sen. Lindsey Graham embarrassed himself with his failed run for President and now further embarrasses himself with endorsement of Bush. - 15 January 2016"};
+            "Sen. Lindsey Graham embarrassed himself with his failed run for President and now further embarrasses himself with endorsement of Bush. - 15 January 2016",""};
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lindseygraham);
         ButterKnife.bind(this);
 
-        ObamaQuotesArrayAdapter adapter = new ObamaQuotesArrayAdapter(this, android.R.layout.simple_list_item_1, graham);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, graham);
         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){

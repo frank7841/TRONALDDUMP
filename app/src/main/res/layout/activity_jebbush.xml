@@ -5,13 +5,15 @@
         android:id="@+id/jebBushTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/jeb_bush"
+        android:text="What he said About Jeb Bush"
+        android:textSize="20sp"
         />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/jlistView"
         android:layout_below="@+id/jebBushTextView"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:padding="10dp"/>
 
 </RelativeLayout>
