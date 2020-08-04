@@ -19,7 +19,9 @@ public class ObamaActivity extends AppCompatActivity {
     @BindView(R.id.listView) ListView mListView;
     public static final String TAG = ObamaActivity.class.getSimpleName();
     private String[] ObamaQuotes = new String[]{"Our great African American President hasn't exactly had a positive impact on the thugs who are so happily and openly destroying Baltimore! - 28 April 2015",
-            "An 'extremely credible source' has called my office and told me that Barack Obama's birth certificate is a fraud. - 6 August 2012"
+            "An 'extremely credible source' has called my office and told me that Barack Obama's birth certificate is a fraud. - 6 August 2012",
+            "President Obama just had a news conference, but he doesn't have a clue. Our country is a divided crime scene, and it will only get worse! - 17 July 2016",
+            "#IranDeal will go down as one of the dumbest & most dangerous misjudgments ever entered into in history of our country—incompetent leader! - 28 July 2015"
 
     };
 
