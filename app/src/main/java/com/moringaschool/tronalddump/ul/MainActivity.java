@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -45,7 +46,28 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 "Mitt Romney", "Ivanka Trump", "Ruth Bader Ginsburg", "Joseph R. Biden Jr.",
                 "Muammar Gaddafi", "Money", "Bette Midler"};
 
+        //locating List view in activity_main.xml
+        list =(ListView) findViewById(R.id.listView);
+        for (int i=0;i< nameList.length;i++){
+            String names = nameList[i];
+            arraylist.add(names);
+        }
+        //Passing the results to ListView Class
+        adapter = new ListViewAdapter(this, arraylist);
+        list.setAdapter(adapter);
 
+        //locate search view in activity_main.xml
+        editsearch = (SearchView) findViewById(R.id.search);
+        editsearch.setOnQueryTextListener(this);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, DisplayActivity.class);
+                intent.putExtra("source", adapter.getItem(position));
+                startActivity(intent);
+            }
+        });
 
         mObamaButton.setOnClickListener(this);
         mBushButton.setOnClickListener(this);
