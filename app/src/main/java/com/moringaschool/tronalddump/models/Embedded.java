@@ -1,9 +1,10 @@
 
-package com.moringaschool.tronalddump;
+package com.moringaschool.tronalddump.models;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.moringaschool.tronalddump.models.Tag;
 
 public class Embedded {
 

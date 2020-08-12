@@ -1,5 +1,5 @@
 
-package com.moringaschool.tronalddump;
+package com.moringaschool.tronalddump.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
