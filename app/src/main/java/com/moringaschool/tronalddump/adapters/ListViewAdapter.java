@@ -11,6 +11,7 @@ import com.moringaschool.tronalddump.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ListViewAdapter extends BaseAdapter {
     //Varriable Declration
@@ -56,5 +57,18 @@ public class ListViewAdapter extends BaseAdapter {
         return view;
     }
     //folter class
-
+    public void filter(String charText){
+        charText=charText.toLowerCase(Locale.getDefault());
+        namesList.clear();
+        if (charText.length()==0) {
+            namesList.addAll(arraylist);
+        }else {
+            for (String wp: arraylist){
+                if (wp.toLowerCase(Locale.getDefault()).contains(charText)) {
+                    namesList.add(wp);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
 }
