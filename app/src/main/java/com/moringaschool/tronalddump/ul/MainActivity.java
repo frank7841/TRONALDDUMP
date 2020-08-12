@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 "Muammar Gaddafi", "Money", "Bette Midler"};
 
 
+
         mObamaButton.setOnClickListener(this);
         mBushButton.setOnClickListener(this);
         mGrahamButton.setOnClickListener(this);
