@@ -43,11 +43,18 @@ public class ListViewAdapter extends BaseAdapter {
 
     public View getView(final int position, View view, ViewGroup parent) {
         final ViewHolder holder;
-        if (view == null){
-            holder=new ViewHolder();
+        if (view == null) {
+            holder = new ViewHolder();
             view = inflater.inflate(R.layout.listview_item, null);
-
-
+            holder.name = (TextView) view.findViewById(R.id.name);
+            view.setTag(holder);
+        }else {
+            holder= (ViewHolder) view.getTag();
         }
+        //setting results into textview
+        holder.name.setText(namesList.get(position));
+        return view;
     }
+    //folter class
+
 }
