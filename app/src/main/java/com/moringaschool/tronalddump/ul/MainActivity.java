@@ -69,25 +69,16 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
 
-        mObamaButton.setOnClickListener(this);
-        mBushButton.setOnClickListener(this);
-        mGrahamButton.setOnClickListener(this);
     }
     @Override
-    public void onClick(View v){
-        if (v== mObamaButton) {
-            Toast.makeText(MainActivity.this, "Hey Frank Lets do this", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this, ObamaActivity.class);
-            startActivity(intent);
-        }
-        else if (v== mBushButton){
-            Intent bushIntent = new Intent(MainActivity.this, JebBushActivity.class);
-            startActivity(bushIntent);
-        }
-        else if(v==mGrahamButton){
-            Intent grahamIntent = new Intent(MainActivity.this, LindseyGrahamActivity.class);
-            startActivity(grahamIntent);
-        }
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        String text = newText;
+        adapter.filter(text);
+        return false;
+    }
 
     }
-}
