@@ -6,21 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
 
-import com.moringaschool.tronalddump.JebBushActivity;
-import com.moringaschool.tronalddump.LindseyGrahamActivity;
-import com.moringaschool.tronalddump.ObamaActivity;
 import com.moringaschool.tronalddump.R;
 import com.moringaschool.tronalddump.adapters.ListViewAdapter;
 
 import java.util.ArrayList;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
@@ -48,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 "Muammar Gaddafi", "Money", "Bette Midler"};
 
         //locating List view in activity_main.xml
-        list =(ListView) findViewById(R.id.listView);
+        list =(ListView) findViewById(R.id.listview);
         for (int i=0;i< nameList.length;i++){
             String names = nameList[i];
             arraylist.add(names);

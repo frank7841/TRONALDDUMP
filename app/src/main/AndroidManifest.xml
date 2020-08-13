@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.moringaschool.tronalddump">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,26 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LindseyGrahamActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.tronalddump.LindseyGrahamActivity">
-
-            </meta-data>
-        </activity>
-        <activity android:name=".JebBushActivity" >
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.moringaschool.tronalddump.JebBushActivity">
-        </meta-data>
-        </activity>
-        <activity android:name=".ObamaActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.moringaschool.tronalddump.ObamaActivity">
-
-        </meta-data>
-        </activity>
+        <activity android:name=".ul.DisplayActivity"></activity>
         <activity
             android:name=".ul.MainActivity"
             android:theme="@style/NoActionBarTheme">
