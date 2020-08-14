@@ -1,4 +1,4 @@
-package com.rotimijohnson.jokes.models;
+package com.moringaschool.tronalddump.models;
 
 public class jokes {
     private String category;

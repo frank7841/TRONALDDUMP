@@ -1,6 +1,7 @@
 package com.moringaschool.tronalddump.network;
 
 import com.moringaschool.tronalddump.models.TronaldDump;
+import com.moringaschool.tronalddump.models.jokes;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -8,8 +9,11 @@ import retrofit2.http.Headers;
 import retrofit2.http.Query;
 
 public interface TronalDump {
-    @Headers("accept: application/hal+json")
-    @GET("search/quote")
-    Call<TronaldDump> searchQuote(
-            @Query("Query") String Search);
+    @GET("joke/Any?type=single")
+    Call<jokes> getRandomJoke();
+
+    @GET("joke/Any?type=single")
+    Call<jokes> getJoke(
+            @Query("contains") String jokeText
+    );
 }
