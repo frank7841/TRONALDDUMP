@@ -23,15 +23,17 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DisplayActivity extends AppCompatActivity {
-    private Button refresh;
-    private String source;
-    private TextView notification;
-    private TextView quoteBox;
-    private int index=0;
 
-    public Embedded quotes;
-    private ListViewAdapter mAdapter;
-    ///retrofit binder
+    private Retrofit retrofit;//
+//    private Button refresh;
+//    private String source;
+//    private TextView notification;
+//    private TextView quoteBox;
+//    private int index=0;
+//
+//    public Embedded quotes;
+//    private ListViewAdapter mAdapter;
+//    ///retrofit binder
 
 //    private OkHttpClient okHttpClient;
 //    private final Retrofit retrofit = new Retrofit.Builder()
