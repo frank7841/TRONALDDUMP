@@ -2,4 +2,7 @@
     <string name="app_name">TronaldDump</string>
     <string name="lindsey_graham">Lindsey Graham</string>
     <string name="jeb_bush">Jeb Bush</string>
+    <string name="i_m_feeling_lucky">I am feeling Lucky today</string>
+    <string name="get_jokes">Get  Joke</string>
+    <string name="enter_any_joke_text">Search any Joke</string>
 </resources>

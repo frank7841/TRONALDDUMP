@@ -1,7 +1,5 @@
 package com.moringaschool.tronalddump.network;
 
-import com.moringaschool.tronalddump.models.TronaldDump;
-
 import java.io.IOException;
 
 import okhttp3.Interceptor;
