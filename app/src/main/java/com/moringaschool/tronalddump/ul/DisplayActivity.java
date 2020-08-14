@@ -34,7 +34,7 @@ public class DisplayActivity extends AppCompatActivity {
                 .build();
         tronalDump=retrofit.create(TronalDump.class);
 
-        jokeText
+        LinearlayoutManager linearlayoutManager
     }
 
 }
