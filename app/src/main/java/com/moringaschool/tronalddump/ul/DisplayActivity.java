@@ -2,14 +2,19 @@ package com.moringaschool.tronalddump.ul;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.moringaschool.tronalddump.R;
-import com.moringaschool.tronalddump.TronaldDump;
+import com.moringaschool.tronalddump.adapters.ListViewAdapter;
+import com.moringaschool.tronalddump.models.Embedded;
+import com.moringaschool.tronalddump.models.TronaldDump;
 import com.moringaschool.tronalddump.network.TronalDump;
+import com.moringaschool.tronalddump.network.TronalDumpClient;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,37 +28,47 @@ public class DisplayActivity extends AppCompatActivity {
     private TextView notification;
     private TextView quoteBox;
     private int index=0;
+
+    public Embedded quotes;
+    private ListViewAdapter mAdapter;
     ///retrofit binder
 
-    private final Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://api.tronalddump.io/")//API baseUrl
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-    private final TronalDump service = retrofit.create(TronalDump.class);
-
+//    private OkHttpClient okHttpClient;
+//    private final Retrofit retrofit = new Retrofit.Builder()
+//            .baseUrl("https://api.tronalddump.io/")//API baseUrl
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build();
+//    private final TronalDump service = retrofit.create(TronalDump.class);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
-        source=getIntent().getStringExtra("source");
-        generateQuote(source);
 
         refresh = findViewById(R.id.button_activity_refresh);//find button activity refresh
         quoteBox = findViewById(R.id.textView_activity_quoteView);
         notification = findViewById(R.id.textView_activity_notification);
 
-    }
-    public void generateQuote(String source) {
-        Call<TronaldDump> call = service.searchQuote(source);
+        final Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://api.tronalddump.io/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        final TronalDump service =
+                retrofit.create(TronalDump.class);
+        Call<TronaldDump> call = service.searchQuote(source);;
+        TronalDump client = TronalDumpClient.getClient();
+        Intent intent = getIntent();
+        source = intent.getStringExtra("source");
+
         call.enqueue(new Callback<TronaldDump>() {
             @Override
             public void onResponse(Call<TronaldDump> call, Response<TronaldDump> response) {
-                if (index >= response.body().getEmbedded().getTag().size()) {
-                    index = 0;
-                    notification.setText("All Available Quotes Have Been Displayed");
+                if (response.isSuccessful()) {
+
+                    quotes = response.body().getEmbedded();
+                    mAdapter = new ListViewAdapter(DisplayActivity.this, (List<String>) quotes);
                 }
-                quoteBox.setText(response.body().getEmbedded().getTag().get(index).getValue());
+
             }
 
             @Override
@@ -62,9 +77,6 @@ public class DisplayActivity extends AppCompatActivity {
             }
         });
     }
-        public void refreshQuote(View view) {
-            index++;
-            notification.setText("");
-            generateQuote(source);
-    }
+
+
 }

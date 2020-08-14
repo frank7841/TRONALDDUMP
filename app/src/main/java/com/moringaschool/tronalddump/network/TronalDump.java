@@ -1,6 +1,6 @@
 package com.moringaschool.tronalddump.network;
 
-import com.moringaschool.tronalddump.TronaldDump;
+import com.moringaschool.tronalddump.models.TronaldDump;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
