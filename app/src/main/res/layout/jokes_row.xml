@@ -12,8 +12,7 @@
         android:text="The quotes is going to be here, then it goes on and on"
         android:textColor="@android:color/black"
         android:textSize="23sp"
-        android:textStyle="bold"
-        app:fontFamily="@font/muli_black" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/joke_number"
@@ -26,7 +25,7 @@
         android:text="Id: "
         android:textSize="20sp"
         android:textStyle="italic"
-        app:fontFamily="@font/muli" />
+         />
 
     <TextView
         android:id="@+id/category_joke"
@@ -38,8 +37,7 @@
         android:layout_marginTop="15dp"
         android:text="Category: "
         android:textSize="20sp"
-        android:textStyle="italic"
-        app:fontFamily="@font/muli" />
+        android:textStyle="italic" />
 
 
 </RelativeLayout>
