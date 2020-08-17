@@ -9,6 +9,8 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.moringaschool.tronalddump.Constants.JOKE_BASE_URL;
+
 public class TronalDumpClient {
 
     private static Retrofit retrofit = null;
@@ -33,7 +35,7 @@ public class TronalDumpClient {
                     .build();
 
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://api.tronalddump.io/")
+                    .baseUrl(JOKE_BASE_URL)
                     .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
