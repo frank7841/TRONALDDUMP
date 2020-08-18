@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "985262338554",
+    "firebase_url": "https://myjoke-27d28.firebaseio.com",
+    "project_id": "myjoke-27d28",
+    "storage_bucket": "myjoke-27d28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985262338554:android:fd9ceabce04d3fa7ccb443",
+        "android_client_info": {
+          "package_name": "com.moringaschool.tronalddump"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985262338554-dclb0jhgjouq6rfdlv094k44083g3s3j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.tronalddump",
+            "certificate_hash": "9866568f6c32a766f0a53a6123a15f951cb81ece"
+          }
+        },
+        {
+          "client_id": "985262338554-s805qmgg5oib2h1g2iej5dg1ctqdl43p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9dzzbssKJnQbX2Qzb3X9YJyRu59zHcwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985262338554-s805qmgg5oib2h1g2iej5dg1ctqdl43p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

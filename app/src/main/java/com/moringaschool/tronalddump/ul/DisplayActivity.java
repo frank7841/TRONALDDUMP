@@ -2,16 +2,22 @@ package com.moringaschool.tronalddump.ul;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.moringaschool.tronalddump.Constants;
 import com.moringaschool.tronalddump.R;
 import com.moringaschool.tronalddump.adapters.recyclerViewAdapter;
 import com.moringaschool.tronalddump.models.jokes;
@@ -30,12 +36,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.moringaschool.tronalddump.Constants.JOKE_BASE_URL;
 
-public class DisplayActivity extends AppCompatActivity {
+public class DisplayActivity<Private> extends AppCompatActivity {
+
     private AlertDialog.Builder alertDialogBuilder;
     private ProgressDialog progressDialog;
     private Retrofit retrofit;//
     private TronalDump tronalDump;
-        @BindView(R.id.joke_text) EditText jokeText;
+
+    private SharedPreferences sharedPreferences;//Shared Prefference
+    private  SharedPreferences.Editor mEditor;
+    private String mRecentName;
+    @BindView(R.id.joke_text) EditText jokeText;
     @BindView(R.id.get_joke_btn) Button jokebutton;
     @BindView(R.id.recycler_view) RecyclerView recyclerView;
     @BindView(R.id.im_feeling_lucky_btn) Button feelinglucky;
@@ -44,6 +55,10 @@ public class DisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
                 ButterKnife.bind(this);
+//                mEditor = sharedPreferences.edit();
+//                sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
+//                mRecentName = sharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY,null);
+//        Log.d("Shared Pref Joke Name ", mRecentName);
 
         retrofit= new Retrofit.Builder()
                 .baseUrl(JOKE_BASE_URL)
@@ -132,6 +147,26 @@ public class DisplayActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void addToSharedPreferences(String jokeName) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, jokeName).apply();
+    }
+
+//    @Override
+//    public void onClick(View view) {
+//        if( view == jokebutton) {
+//            String JokeName = jokeText.getText().toString();
+//            //save location if empty
+//            if(!(JokeName).equals("")) {
+//                addToSharedPreferences(JokeName);
+//            }
+////            Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
+////            intent.putExtra("location", location);
+////            Log.d(TAG, location);
+////            Toast.makeText(MainActivity.this, location, Toast.LENGTH_LONG).show();
+//        }
+//
+//    }
 }
 
 
