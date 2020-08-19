@@ -144,19 +144,23 @@ public class DisplayActivity<Private> extends AppCompatActivity {
             @Override
             public void onResponse(Call<jokes> call, Response<jokes> response) {
                 progressDialog.dismiss();
-                jokes joke = response.body();
+                final jokes joke = response.body();
 
                 String title = "Random Text";
                 alertDialogBuilder = new AlertDialog.Builder(DisplayActivity.this);
                 alertDialogBuilder.setTitle(title)
                         .setMessage(joke.getJoke())
-                        .setPositiveButton("Boring", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+                                DatabaseReference jokeRef= FirebaseDatabase
+                                        .getInstance()
+                                        .getReference(Constants.FIREBASE_CHILD_SAVED_JOKE);
+                                jokeRef.push().setValue(joke);
 
                             }
                         })
-                        .setNegativeButton("Ha! Ha", new DialogInterface.OnClickListener() {
+                        .setNegativeButton("Boring", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
 
