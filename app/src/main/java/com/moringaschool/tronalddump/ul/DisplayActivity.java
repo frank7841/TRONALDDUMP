@@ -12,11 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -60,7 +63,24 @@ public class DisplayActivity<Private> extends AppCompatActivity {
         msearchedJokeRefference = FirebaseDatabase
                 .getInstance()
                 .getReference()
-                .child(Constants.FIREBASE_CHILD_SEARCHED_JOKE);
+                .child(Constants.FIREBASE_CHILD_SEARCHED_JOKE);//Pin points Node location
+        mSearchedJokeEventListener= msearchedJokeRefference.addValueEventListener(new ValueEventListener(){
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot JokeNameSnapshot : dataSnapshot.getChildren()) {
+                    String text = JokeNameSnapshot.getValue().toString();
+                    Log.d("JokeName updated", "JokeName: " + text); //log
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
                 ButterKnife.bind(this);
@@ -156,6 +176,11 @@ public class DisplayActivity<Private> extends AppCompatActivity {
     public void saveJokeName(String text){
         msearchedJokeRefference.push().setValue(text);
 
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        msearchedJokeRefference.removeEventListener(mSearchedJokeEventListener);
     }
 
 }
