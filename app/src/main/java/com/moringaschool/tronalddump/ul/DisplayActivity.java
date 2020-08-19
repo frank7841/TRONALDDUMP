@@ -17,6 +17,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.moringaschool.tronalddump.Constants;
 import com.moringaschool.tronalddump.R;
 import com.moringaschool.tronalddump.adapters.recyclerViewAdapter;
@@ -42,6 +45,8 @@ public class DisplayActivity<Private> extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private Retrofit retrofit;//
     private TronalDump tronalDump;
+    private DatabaseReference msearchedJokeRefference;
+    private ValueEventListener mSearchedJokeEventListener;
 
     private SharedPreferences sharedPreferences;//Shared Prefference
     private  SharedPreferences.Editor mEditor;
@@ -52,13 +57,13 @@ public class DisplayActivity<Private> extends AppCompatActivity {
     @BindView(R.id.im_feeling_lucky_btn) Button feelinglucky;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        msearchedJokeRefference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child(Constants.FIREBASE_CHILD_SEARCHED_JOKE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
                 ButterKnife.bind(this);
-//                mEditor = sharedPreferences.edit();
-//                sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
-//                mRecentName = sharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY,null);
-//        Log.d("Shared Pref Joke Name ", mRecentName);
 
         retrofit= new Retrofit.Builder()
                 .baseUrl(JOKE_BASE_URL)
@@ -78,6 +83,7 @@ public class DisplayActivity<Private> extends AppCompatActivity {
                 progressDialog.setMessage("Loading");
                 progressDialog.setCancelable(false);
                 progressDialog.show();
+                saveJokeName(text);
                 getJoke(text);
             }
         });
@@ -147,26 +153,11 @@ public class DisplayActivity<Private> extends AppCompatActivity {
             }
         });
     }
+    public void saveJokeName(String text){
+        msearchedJokeRefference.push().setValue(text);
 
-    private void addToSharedPreferences(String jokeName) {
-        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, jokeName).apply();
     }
 
-//    @Override
-//    public void onClick(View view) {
-//        if( view == jokebutton) {
-//            String JokeName = jokeText.getText().toString();
-//            //save location if empty
-//            if(!(JokeName).equals("")) {
-//                addToSharedPreferences(JokeName);
-//            }
-////            Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
-////            intent.putExtra("location", location);
-////            Log.d(TAG, location);
-////            Toast.makeText(MainActivity.this, location, Toast.LENGTH_LONG).show();
-//        }
-//
-//    }
 }
 
 
