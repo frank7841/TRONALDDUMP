@@ -48,7 +48,7 @@
             android:text="Log in"
             android:background="@color/colorAccent"
             android:layout_marginTop="15dp"
-            android:textColor="@color/colorTextIcons" />
+            android:textColor="@android:color/primary_text_dark" />
 
         <TextView
             android:layout_width="wrap_content"
