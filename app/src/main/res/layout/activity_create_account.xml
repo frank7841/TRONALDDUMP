@@ -64,7 +64,7 @@
             android:padding="10dp"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
-            android:textColorHint="@color/common_google_signin_btn_tint"
+            android:textColorHint="@color/colorTextIcons"
             android:textSize="20sp" />
 
 
@@ -76,7 +76,7 @@
             android:text="Sign up"
             android:background="@color/colorAccent"
             android:layout_marginTop="15dp"
-            android:textColor="@color/colorTextIcons" />
+            android:textColor="@android:color/primary_text_dark" />
 
         <TextView
             android:id="@+id/loginTextView"
@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Account"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorTextIcons"
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
