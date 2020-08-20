@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -82,6 +83,7 @@ public class DisplayActivity<Private> extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
                 ButterKnife.bind(this);
 
+
         retrofit= new Retrofit.Builder()
                 .baseUrl(JOKE_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -96,12 +98,14 @@ public class DisplayActivity<Private> extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String text=jokeText.getText().toString();
+//                String name_of_joke = jokeText.getText().toString();
                 progressDialog = new ProgressDialog(DisplayActivity.this);
                 progressDialog.setMessage("Loading");
                 progressDialog.setCancelable(false);
                 progressDialog.show();
                 saveJokeName(text);
                 getJoke(text);
+//                addToSharedPreferences(name_of_joke);
 
 
             }
@@ -118,6 +122,11 @@ public class DisplayActivity<Private> extends AppCompatActivity {
 
             }
         });
+//        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentName =sharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY,null);
+//        Log.d("Shared Joke name is ", mRecentName);
+//        mEditor = sharedPreferences.edit();
+
     }
     private void getJoke(String text){
         tronalDump.getJoke(text).enqueue(new Callback<Jokes>() {
@@ -185,8 +194,9 @@ public class DisplayActivity<Private> extends AppCompatActivity {
         super.onDestroy();
         msearchedJokeRefference.removeEventListener(mSearchedJokeEventListener);
     }
-
-
+    private void addToSharedPreferences(String name_of_joke) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, name_of_joke).apply();
+    }
 }
 
 
