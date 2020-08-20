@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.moringaschool.tronalddump.R;
 
 import butterknife.BindView;
@@ -44,6 +45,18 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
          createAuthListener();//Calling Create AuthListener method
 
     }
+    @Override
+    public void onClick(View view) {
+        if (view==mLoginTextView){
+            Intent intent= new Intent(CreateAccountActivity.this, loginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
+        if (view==mCreateUserButton){
+            createNewUser();
+        }
+    }
     public void createNewUser(){
         final String name = mEditText.getText().toString().trim();
         final String email = mEmailEditText.getText().toString().trim();
@@ -66,19 +79,32 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
 
     }
     public void createAuthListener(){
+        mAuthListener= new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                final FirebaseUser user = firebaseAuth.getCurrentUser();//getting Current Firebase user of type user
+                if (user !=null){
+                    Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        };
 
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
     }
 
     @Override
-    public void onClick(View view) {
-        if (view==mLoginTextView){
-            Intent intent= new Intent(CreateAccountActivity.this, loginActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-            finish();
-        }
-        if (view==mCreateUserButton){
-            createNewUser();
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
 }
