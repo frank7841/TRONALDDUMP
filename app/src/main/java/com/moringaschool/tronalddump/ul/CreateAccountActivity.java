@@ -63,6 +63,13 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         final String password = mPasswordEditText.getText().toString().trim();
         final String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
 
+        boolean validEmail = isValidEmail(email);
+        boolean validName = isValidName(name);
+        boolean validPassword = isValidPassword(password, confirmPassword);
+        if (!validEmail || !validName || !validPassword) return;
+
+
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -72,12 +79,13 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                         }
                         else {
                             Toast.makeText(CreateAccountActivity.this, "Authentification Failed",
-                            Toast.LENGTH_SHORT).show();
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-
     }
+    //Input fireld vallidation
+
     private boolean isValidEmail(String email) {
         boolean isGoodEmail =
                 (email != null && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches());
