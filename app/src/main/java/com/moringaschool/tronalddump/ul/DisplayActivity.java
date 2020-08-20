@@ -132,41 +132,41 @@ public class DisplayActivity<Private> extends AppCompatActivity {
 //        Log.d("Shared Joke name is ", mRecentName);
 //        mEditor = sharedPreferences.edit();
     }
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu){
-            MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.menu_search, menu);
-            ButterKnife.bind(this);
-            MenuItem menuItem = menu.findItem(R.id.action_serach);
-            SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
-
-            //Search View Listeners
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
-
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-
-                    getJoke(query);
-                    return false;
-                }
-
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    return false;
-                }
-            });
-
-            return true;
-
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        return super.onOptionsItemSelected(item);
-
-    }
-        private void addToSharedPreferences(String name_of_joke) {
-        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, name_of_joke).apply();
-    }
+//        @Override
+//        public boolean onCreateOptionsMenu(Menu menu){
+//            MenuInflater inflater = getMenuInflater();
+//            inflater.inflate(R.menu.menu_search, menu);
+//            ButterKnife.bind(this);
+//            MenuItem menuItem = menu.findItem(R.id.action_serach);
+//            SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+//
+//            //Search View Listeners
+//            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+//
+//                @Override
+//                public boolean onQueryTextSubmit(String query) {
+//
+//                    getJoke(query);
+//                    return false;
+//                }
+//
+//                @Override
+//                public boolean onQueryTextChange(String newText) {
+//                    return false;
+//                }
+//            });
+//
+//            return true;
+//
+//    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item){
+//        return super.onOptionsItemSelected(item);
+//
+//    }
+//        private void addToSharedPreferences(String name_of_joke) {
+//        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, name_of_joke).apply();
+//    }
 
 
     private void getJoke(String text){

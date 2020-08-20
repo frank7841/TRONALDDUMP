@@ -28,8 +28,7 @@
             android:value="com.moringaschool.tronalddump.ul.MainActivity"/>
         </activity>
 
-        <activity android:name=".ul.MainActivity"
-                  android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".ul.MainActivity">
 
         </activity>
 
