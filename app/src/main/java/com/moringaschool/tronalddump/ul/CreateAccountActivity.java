@@ -1,14 +1,20 @@
 package com.moringaschool.tronalddump.ul;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.moringaschool.tronalddump.R;
 
@@ -18,6 +24,7 @@ import butterknife.ButterKnife;
 public class CreateAccountActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String TAG = CreateAccountActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
     @BindView(R.id.createUserButton) Button mCreateUserButton;
     @BindView(R.id.nameEditText) EditText mEditText;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
@@ -37,6 +44,24 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
 
     }
     public void createNewUser(){
+        final String name = mEditText.getText().toString().trim();
+        final String email = mEmailEditText.getText().toString().trim();
+        final String password = mPasswordEditText.getText().toString().trim();
+        final String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            Log.d(TAG, "Authentification Successful");
+                        }
+                        else {
+                            Toast.makeText(CreateAccountActivity.this, "Authentification Failed",
+                            Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
     }
 
