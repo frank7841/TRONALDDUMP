@@ -6,13 +6,18 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -62,7 +67,7 @@ public class DisplayActivity<Private> extends AppCompatActivity {
                 .getInstance()
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_SEARCHED_JOKE);//Pin points Node location
-        mSearchedJokeEventListener= msearchedJokeRefference.addValueEventListener(new ValueEventListener(){
+        mSearchedJokeEventListener = msearchedJokeRefference.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -81,23 +86,23 @@ public class DisplayActivity<Private> extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-                ButterKnife.bind(this);
+        ButterKnife.bind(this);
 
 
-        retrofit= new Retrofit.Builder()
+        retrofit = new Retrofit.Builder()
                 .baseUrl(JOKE_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        tronalDump=retrofit.create(TronalDump.class);
+        tronalDump = retrofit.create(TronalDump.class);
 
         LinearLayoutManager linearlayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearlayoutManager);
         recyclerView.setHasFixedSize(true);
-        jokebutton.setOnClickListener(new View.OnClickListener(){
+        jokebutton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                String text=jokeText.getText().toString();
+                String text = jokeText.getText().toString();
 //                String name_of_joke = jokeText.getText().toString();
                 progressDialog = new ProgressDialog(DisplayActivity.this);
                 progressDialog.setMessage("Loading");
@@ -110,7 +115,7 @@ public class DisplayActivity<Private> extends AppCompatActivity {
 
             }
         });
-        feelinglucky.setOnClickListener(new View.OnClickListener(){
+        feelinglucky.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -126,8 +131,44 @@ public class DisplayActivity<Private> extends AppCompatActivity {
 //        mRecentName =sharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY,null);
 //        Log.d("Shared Joke name is ", mRecentName);
 //        mEditor = sharedPreferences.edit();
+    }
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.menu_search, menu);
+            ButterKnife.bind(this);
+            MenuItem menuItem = menu.findItem(R.id.action_serach);
+            SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+
+            //Search View Listeners
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+
+                    getJoke(query);
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    return false;
+                }
+            });
+
+            return true;
 
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        return super.onOptionsItemSelected(item);
+
+    }
+        private void addToSharedPreferences(String name_of_joke) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, name_of_joke).apply();
+    }
+
+
     private void getJoke(String text){
         tronalDump.getJoke(text).enqueue(new Callback<Jokes>() {
             @Override
@@ -194,9 +235,7 @@ public class DisplayActivity<Private> extends AppCompatActivity {
         super.onDestroy();
         msearchedJokeRefference.removeEventListener(mSearchedJokeEventListener);
     }
-    private void addToSharedPreferences(String name_of_joke) {
-        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, name_of_joke).apply();
-    }
+
 }
 
 

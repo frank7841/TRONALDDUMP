@@ -2,6 +2,8 @@ package com.moringaschool.tronalddump.ul;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -26,6 +28,12 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         ButterKnife.bind(this);
         savedButton.setOnClickListener(this);
         mButton.setOnClickListener(this);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater= getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
 
