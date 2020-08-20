@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 public class CreateAccountActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String TAG = CreateAccountActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseAuth.AuthStateListener mAuthListener;// AuthListener to Listen to Authenticate User Account
     @BindView(R.id.createUserButton) Button mCreateUserButton;
     @BindView(R.id.nameEditText) EditText mEditText;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
@@ -41,6 +41,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
 
         mLoginTextView.setOnClickListener(this);// redirect to login
         mCreateUserButton.setOnClickListener(this);//submit new user
+         createAuthListener();//Calling Create AuthListener method
 
     }
     public void createNewUser(){
@@ -62,6 +63,9 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                         }
                     }
                 });
+
+    }
+    public void createAuthListener(){
 
     }
 
