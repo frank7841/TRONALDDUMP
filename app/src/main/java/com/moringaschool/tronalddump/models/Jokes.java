@@ -1,13 +1,13 @@
 package com.moringaschool.tronalddump.models;
 
-public class jokes {
+public class Jokes {
     private String category;
 
     private String joke;
 
     private int id;
 
-    public jokes() {
+    public Jokes() {
     }
 
     public String getCategory() {

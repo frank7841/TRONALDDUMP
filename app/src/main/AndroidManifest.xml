@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.moringaschool.tronalddump">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -10,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ul.DisplayActivity"></activity>
-        <activity
-            android:name=".ul.MainActivity">
+        <activity android:name=".ul.CreateAccountActivity"></activity>
+        <activity android:name=".ul.SavedJokesListActivity" />
+        <activity android:name=".ul.DisplayActivity" />
+        <activity android:name=".ul.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

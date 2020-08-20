@@ -10,17 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.tronalddump.R;
-import com.moringaschool.tronalddump.models.jokes;
+import com.moringaschool.tronalddump.models.Jokes;
 
 import java.util.List;
-import java.util.Locale;
 
 public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapter.recyclerHolder> {
     //varriables Declaration;
     private Context mContext;
-    private List<jokes>jokesArrayList;
+    private List<Jokes>jokesArrayList;
 
-    public recyclerViewAdapter(Context mContext, List<jokes> jokesArrayList) {
+    public recyclerViewAdapter(Context mContext, List<Jokes> jokesArrayList) {
         this.mContext = mContext;
         this.jokesArrayList = jokesArrayList;
     }
@@ -36,7 +35,7 @@ public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull recyclerHolder holder, int position) {
-        jokes alljokes = jokesArrayList.get(position);
+        Jokes alljokes = jokesArrayList.get(position);
         holder.body.setText(alljokes.getJoke());
         holder.category.setText(alljokes.getCategory());
         holder.id.setText(String.valueOf(alljokes.getId()));
